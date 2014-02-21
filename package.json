@@ -1,0 +1,25 @@
+{
+  "name": "scriptex",
+  "version": "0.0.1",
+  "description": "Turns screenplay text files into LaTeX files using the screenplay.cls LaTeX clas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gannimet/scriptex.git"
+  },
+  "keywords": [
+    "screenplay",
+    "latex",
+    "pdf",
+    "txt"
+  ],
+  "author": "Richard Wotzlaw",
+  "license": "Do what the fuck you want to public license",
+  "bugs": {
+    "url": "https://github.com/gannimet/scriptex/issues"
+  },
+  "homepage": "https://github.com/gannimet/scriptex"
+}
