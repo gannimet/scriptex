@@ -4,7 +4,7 @@
   "description": "Turns screenplay text files into LaTeX files using the screenplay.cls LaTeX clas",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/*.js"
   },
   "repository": {
     "type": "git",
