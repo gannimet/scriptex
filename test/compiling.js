@@ -4,8 +4,8 @@ var scriptex = require('../../scriptex');
 describe('Compiling', function() {
 	it('dummy compile', function() {
 		scriptex.compile(
-			'/Users/richard/Documents/Drehbuecher/twin_peaks/episode_01x04.txt',
-			'')
+			'/Users/richard/Developer/Javascript/scriptex/test-data/input/episode_01x04.txt',
+			'/Users/richard/Developer/Javascript/scriptex/test-data/output/episode_01x04.tex')
 			.should.be.true;
 	});
 });

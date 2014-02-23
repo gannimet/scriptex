@@ -5,3 +5,4 @@
 ethumbs.db
 Thumbs.db
 node_modules
+test-data/output/*
