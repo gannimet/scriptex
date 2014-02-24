@@ -31,3 +31,17 @@ describe('Beginning indicators', function() {
 		scriptex.getBeginningIndicators().should.be.eql(['ACT ONE']);
 	});
 });
+
+describe('Output transitions?', function() {
+	it('setting and getting whether transitions should be outputted', function() {
+		scriptex.shouldOutputTransitions().should.be.true;
+		scriptex.setShouldOutputTransitions(false).should.be.true;
+		scriptex.shouldOutputTransitions().should.be.false;
+		scriptex.setShouldOutputTransitions(true).should.be.true;
+		scriptex.shouldOutputTransitions().should.be.true;
+		scriptex.setShouldOutputTransitions(false).should.be.true;
+
+		scriptex.setShouldOutputTransitions('sdfs').should.be.false;
+		scriptex.shouldOutputTransitions().should.be.false;
+	});
+});
