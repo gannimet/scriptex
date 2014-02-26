@@ -29,6 +29,13 @@ beforeEach(function() {
 	compiler.scriptBegun = true;
 });
 
+describe('String extensions', function() {
+	it('#isUpperCase()', function() {
+		'LEO JOHNSON\'S HOUSE'.isUpperCase().should.be.true;
+		'Int. Kathrin\'s office - Day'.isUpperCase().should.be.false;
+	});
+});
+
 describe('Compiling', function() {
 	it('#dummy compile', function(done) {
 		scriptex.compile(
@@ -48,6 +55,7 @@ describe('Compiling', function() {
 		});
 		it('#slugline', function() {
 			compiler.identify('               EXT. WHITE HOUSE - KITCHEN - DAY').should.eql(Constants.SLUGLINE);
+			compiler.identify('               Int. Kathrin\'s office - Day').should.eql(Constants.ACTION);
 		});
 		it('#transition', function() {
 			compiler.identify('                                                                 CUT TO:').should.eql(Constants.TRANSITION);
@@ -66,6 +74,34 @@ describe('Compiling', function() {
 		});
 		it('#centered', function() {
 			compiler.identify('                                         ACT ONE').should.eql(Constants.CENTERED);
+		});
+	});
+	describe('#analyzing sluglines', function() {
+		it('#initialization', function() {
+			should.exist(compiler);
+		});
+		it('#regular sluglines', function() {
+			var slugline = compiler.analyzeSlugline('INT. LEO JOHNSON\'S HOUSE - DAY');
+			slugline.should.have.properties({
+				environment: 'INT.',
+				location: 'LEO JOHNSON\'S HOUSE',
+				timeOfDay: 'DAY'
+			});
+
+			slugline = compiler.analyzeSlugline('INT./EXT. COOPER\'S CAR - EARLY MORNING');
+			slugline.should.have.properties({
+				environment: 'INT./EXT.',
+				location: 'COOPER\'S CAR',
+				timeOfDay: 'EARLY MORNING'
+			});
+		});
+		it('#corrupted but tolerated sluglines', function() {
+			var slugline = compiler.analyzeSlugline('EXT. THE PALMER HOUSE MORNING');
+			slugline.should.have.properties({
+				environment: 'EXT.',
+				location: 'THE PALMER HOUSE',
+				timeOfDay: 'MORNING'
+			});
 		});
 	});
 });
