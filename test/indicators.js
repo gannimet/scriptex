@@ -45,3 +45,23 @@ describe('Output transitions?', function() {
 		scriptex.shouldOutputTransitions().should.be.false;
 	});
 });
+
+describe('Page break markers', function() {
+	it('#setPageBreakMarkers', function() {
+		scriptex.setPageBreakMarkers([]).should.be.true;
+		scriptex.getPageBreakMarkers().should.be.empty;
+		scriptex.setPageBreakMarkers(['ACT ONE', 'ACT TWO']).should.be.true;
+		scriptex.getPageBreakMarkers().should.eql(['ACT ONE', 'ACT TWO']);
+	});
+	it('#addPageBreakMarkers', function() {
+		scriptex.setPageBreakMarkers([]).should.be.true;
+		scriptex.addPageBreakMarkers('ACT ONE').should.be.true;
+		scriptex.getPageBreakMarkers().should.eql(['ACT ONE']);
+		scriptex.addPageBreakMarkers(['ACT TWO', 'ACT THREE']).should.be.true;
+		scriptex.getPageBreakMarkers().should.eql(['ACT ONE', 'ACT TWO', 'ACT THREE']);
+		scriptex.addPageBreakMarkers('ACT FOUR', 'ACT FIVE').should.be.true;
+		scriptex.getPageBreakMarkers().should.eql(
+			['ACT ONE', 'ACT TWO', 'ACT THREE', 'ACT FOUR', 'ACT FIVE']
+		);
+	});
+});
