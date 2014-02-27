@@ -62,9 +62,9 @@ By default, scriptex comes with a set of predefined `indents` designed to fit in
 };
 ```
 
-As you can see, in the simple case this is just a constant number. Lines will then always be classified into a category using this exact value.
+As you can see, in the simple case this is just a constant number. Lines will then always be classified into categories using this exact value.
 
-But with the `transition` category it's a bit more difficult, since these are aligned flushright and have different numbers of leading spaces depending on the lengths of their contents. It is therefore possible to supply a range of indents using an object as seen above. Don't make the difference between `minValue` and `maxValue` bigger than it absolutely needs to be to avoid ambiguities.
+But with the `transition` category things are a bit more difficult, since these are aligned flushright and have different numbers of leading spaces depending on the lengths of their contents. It is therefore possible to supply a range of indents using an object as seen above. Don't make the difference between `minValue` and `maxValue` bigger than it absolutely needs to be to avoid ambiguities.
 
 So how do you set these indent values? Easy:
 
@@ -95,7 +95,7 @@ There is also the function `getIndent(what)` that you can ask for the indent val
 
 ### `beginningIndicators`
 
-The scriptex compiler somehow needs to know where the 'title page' is over and the actual script begins, so it can insert a page break there and start looking for scene headings/sluglines. To do that, it maintains an array of `beginningIndicators` which, as soon as one of them is encountered in the .txt file, will cause the compiler to 'switch' modes, thus finish looking for title page information, issue a page break and continue by looking for actual screenplay content.
+The scriptex compiler somehow needs to know where the 'title page' is over and the actual script begins, so it can insert a page break there and start looking for scene headings/sluglines. To do that, it maintains an array of `beginningIndicators` which, as soon as *one of them* is encountered in the .txt file, will cause the compiler to 'switch' modes, thus finish looking for title page information, issue a page break and continue by looking for actual screenplay content.
 
 The default values for this field are:
 
@@ -118,3 +118,19 @@ scriptex.addBeginningIndicators(['ACT THREE', 'ACT FOUR']);
 Both functions will return a boolean value indicating their success.
 
 You can ask for the currently set beginning indicators with the function `getBeginningIndicators()`.
+
+### `slugspace_in` and `slugspace_out`
+
+There are different conventions as to how to separate the location part from the time part in a slugline (or scene heading; again, different conventions). Most common is a space followed by a dash followed by another space (` - `), and this is also the default value in scriptex for both input and output files. Another often used separator is just two spaces (`  `).
+
+If your input .txt file for example uses two spaces, configure this by doing the following:
+
+```javascript
+scriptex.setInputSlugspace('  ')
+```
+
+If you also want two spaces in your output, do this:
+
+```javascript
+scriptex.setOutputSlugspace('  ')
+```
