@@ -1,7 +1,7 @@
 {
   "name": "scriptex",
-  "version": "0.1.0",
-  "description": "Turns screenplay text files into LaTeX files using the screenplay.cls LaTeX clas",
+  "version": "0.1.1",
+  "description": "Turns screenplays as plain text files into LaTeX files using the excellent screenplay LaTeX class, found at http://www.ctan.org/tex-archive/macros/latex/contrib/screenplay.",
   "main": "index.js",
   "scripts": {
     "test": "mocha test/*.js"
