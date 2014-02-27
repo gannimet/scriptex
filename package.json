@@ -1,6 +1,6 @@
 {
   "name": "scriptex",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Turns screenplay text files into LaTeX files using the screenplay.cls LaTeX clas",
   "main": "index.js",
   "scripts": {
