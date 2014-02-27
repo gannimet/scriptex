@@ -144,6 +144,6 @@ Especially in TV scripts it is common to explicitly mark the act breaks and have
 ['ACT ONE', 'ACT TWO', 'ACT THREE', 'ACT FOUR', 'ACT FIVE', 'ACT SIX', 'ACT SEVEN']
 ```
 
-Much like with beginning indicators, just use `addPageBreakMarkers()` or `setPageBreakMarkers()` to add/set markers. Both functions accept any number of strings or an array of strings and return `true` success, `false` otherwise. As you will have guessed by now, there is also `getPageBreakMarkers()`.
+Much like with beginning indicators, just use `addPageBreakMarkers()` or `setPageBreakMarkers()` to add/set markers. Both functions accept any number of strings or an array of strings and return `true` on success, `false` otherwise. As you will have guessed by now, there is also `getPageBreakMarkers()`.
 
 An important thing to note here is that you don't have to set a page break marker to get a page break between the title page and the first page of the script. This break will be inserted automatically once one of the `beginningIndicator`s is encountered.
