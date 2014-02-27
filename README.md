@@ -138,7 +138,7 @@ scriptex.setOutputSlugspace('  ')
 Again, `getInputSlugspace()` and `getOutputSlugspace()` will tell you about the current settings.
 
 ### Page break markers
-Especially in TV scripts it is common to explicitly mark the act breaks and have each act start on a new page. To achieve that, scriptex comes shipped with the following set of so called *pageBreakMarkers*, which, when encountered, will cause a `\pagebreak` to be inserted into the LaTeX file before being printed:
+Especially in TV scripts it is common to explicitly mark the act breaks and have each act start on a new page. To achieve that, scriptex comes shipped with the following set of so called `pageBreakMarkers`, which, when encountered, will cause a `\pagebreak` to be inserted into the LaTeX file before being printed:
 
 ```javascript
 ['ACT ONE', 'ACT TWO', 'ACT THREE', 'ACT FOUR', 'ACT FIVE', 'ACT SIX', 'ACT SEVEN']
