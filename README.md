@@ -6,7 +6,7 @@ scriptex is a *node.js* module that turns screenplays as plain text files into L
 
 Simply install via npm (Node Package Manager), either explicitly by:
 
-```
+```shell
 $ npm install scriptex
 ```
 
