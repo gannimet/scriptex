@@ -40,7 +40,7 @@ There is an example screenplay of episode 4 of the brilliant 90's show TWIN PEAK
 
 Depending on the exact format of your input .txt file, you might need to set up some configurations in order to correctly compile it into a LaTeX file. These options include:
 
-### `indents`
+### Indents
 
 It is essential for the scriptex compiler to be able to classify the input data inside the .txt file correctly. Since that file doesn't contain any markup information, the compiler needs to use a set of heuristics to figure out what category a chunk of data belongs to (action, character name, dialogue etc.). This works mostly based on the `indents` variable, specifying the *number of leading whitespaces preceding a line of a particular category* inside the .txt file.
 
@@ -93,7 +93,7 @@ In any case, `setIndent` will return `true` if something has been set, `false` o
 
 There is also the function `getIndent(what)` that you can ask for the indent value (either a number or an object). If no indent was found, it will return `false`.
 
-### `beginningIndicators`
+### Beginning indicators
 
 The scriptex compiler somehow needs to know where the 'title page' is over and the actual script begins, so it can insert a page break there and start looking for scene headings/sluglines. To do that, it maintains an array of `beginningIndicators` which, as soon as *one of them* is encountered in the .txt file, will cause the compiler to 'switch' modes, thus finish looking for title page information, issue a page break and continue by looking for actual screenplay content.
 
@@ -119,7 +119,7 @@ Both functions will return a boolean value indicating their success.
 
 You can ask for the currently set beginning indicators with the function `getBeginningIndicators()`.
 
-### `slugspace_in` and `slugspace_out`
+### Slugspaces
 
 There are different conventions as to how to separate the location part from the time part in a slugline (or scene heading; again, different conventions). Most common is a space followed by a dash followed by another space (` - `), and this is also the default value in scriptex for both input and output files. Another often used separator is just two spaces (`  `).
 
@@ -134,3 +134,16 @@ If you also want two spaces in your output, do this:
 ```javascript
 scriptex.setOutputSlugspace('  ')
 ```
+
+Again, `getInputSlugspace()` and `getOutputSlugspace()` will tell you about the current settings.
+
+### Page break markers
+Especially in TV scripts it is common to explicitly mark the act breaks and have each act start on a new page. To achieve that, scriptex comes shipped with the following set of so called *pageBreakMarkers*, which, when encountered, will cause a `\pagebreak` to be inserted into the LaTeX file before being printed:
+
+```javascript
+['ACT ONE', 'ACT TWO', 'ACT THREE', 'ACT FOUR', 'ACT FIVE', 'ACT SIX', 'ACT SEVEN']
+```
+
+Much like with beginning indicators, just use `addPageBreakMarkers()` or `setPageBreakMarkers()` to add/set markers. Both functions accept any number of strings or an array of strings and return `true` success, `false` otherwise. As you will have guessed by now, there is also `getPageBreakMarkers()`.
+
+An important thing to note here is that you don't have to set a page break marker to get a page break between the title page and the first page of the script. This break will be inserted automatically once one of the `beginningIndicator`s is encountered.
