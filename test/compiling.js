@@ -39,8 +39,8 @@ describe('String extensions', function() {
 describe('Compiling', function() {
 	it('#dummy compile', function(done) {
 		scriptex.compile(
-			'/Users/richard/Developer/Javascript/scriptex/test-data/input/episode_01x04.txt',
-			'/Users/richard/Developer/Javascript/scriptex/test-data/output/episode_01x04.tex',
+			'/Users/richard/Developer/Javascript/scriptex/test-data/input/twin_peaks_pilot.txt',
+			'/Users/richard/Developer/Javascript/scriptex/test-data/output/pilot/twin_peaks_pilot.tex',
 			function(err) {
 				should.not.exist(err);
 				done();
