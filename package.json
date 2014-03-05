@@ -1,6 +1,6 @@
 {
   "name": "scriptex",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Turns screenplays as plain text files into LaTeX files using the excellent screenplay LaTeX class, found at http://www.ctan.org/tex-archive/macros/latex/contrib/screenplay.",
   "main": "index.js",
   "scripts": {
